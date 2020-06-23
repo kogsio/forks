@@ -18,3 +18,8 @@
   color: var(--white);
 }
 
+.divider {
+  border-color: var(--primary);
+  background-color: var(--primary);
+  text-align: center;
+}
