@@ -15,6 +15,14 @@ class Submodule extends HTMLElement {
     const test        = this.getAttribute('test');
     const testUrl     = this.getAttribute('testUrl');
 
+    let videoStr = '';
+    if(video){
+      videoStr = `<a href="${videoUrl}"><i class="fas fa-video"></i> ${video}</a><br />`;
+    }
+    let camtasiaStr = '';
+    if(camtasia){
+      camtasiaStr = `<a href="${camtasiaUrl}"><i class="fab fa-cuttlefish"></i> ${camtasia}</a><br />`;
+    }
     let exerciseStr = '';
     if(exercise){
       exerciseStr = `<a href="${exerciseUrl}"> <i class="fas fa-tools"></i> ${exercise}</a><br />`;
@@ -27,8 +35,8 @@ class Submodule extends HTMLElement {
     this.innerHTML = `
         <h5>${title}</h5>
         <p>
-          <a href="${videoUrl}"><i class="fas fa-video"></i> ${video}</a><br />
-          <a href="${camtasiaUrl}"><i class="fab fa-cuttlefish"></i> ${camtasia}</a><br />
+          ${videoStr}
+          ${camtasiaStr}
           ${exerciseStr}
           ${testStr}          
         </p>
