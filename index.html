@@ -26,13 +26,12 @@
 
   <body>
     <div class="container">
-      <h1>Bootcamp</h1>
+      <h1>Bootcamp - <small class="text-muted">video count: <span id="videoCount"></span></small></h1>
       <br />
 
       <button class="btn btn-outline-secondary" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
           Collapsible Modules
         </button><br><br>
-
 
       <div class="card">
         <h4 class="card-header divider">WEEKS 9-10</h4>
@@ -1087,5 +1086,10 @@
       integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
       crossorigin="anonymous"
     ></script>
+    <script>
+      const videoCount = document.querySelectorAll("mit-submodule").length;
+      document.getElementById("videoCount").innerHTML=videoCount; 
+    </script>
+
   </body>
 </html>
