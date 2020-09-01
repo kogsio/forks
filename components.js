@@ -59,10 +59,12 @@ class Module extends HTMLElement {
     const title = this.getAttribute('title');
 
     this.innerHTML = `
-        <div class="card">
+        <div class="card" id="accordion">
           <h5 class="card-header">${title}</h5>
-          <div class="card-body">
-            ${this.innerHTML}
+          <div  id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">          
+            <div class="card-body">
+              ${this.innerHTML}
+            </div>
           </div>
         </div>
     `;    
