@@ -58,9 +58,15 @@ class Module extends HTMLElement {
     // attribute content 
     const title = this.getAttribute('title');
 
+    // card header color - bootstrap colors
+    let color = this.getAttribute('color');
+    if (color) {
+      color = `style="background-color: var(--${color})`;
+    }
+
     this.innerHTML = `
         <div class="card" id="accordion">
-          <h5 class="card-header">${title}</h5>
+          <h5 class="card-header" ${color}">${title}</h5>
           <div  id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">          
             <div class="card-body">
               ${this.innerHTML}
