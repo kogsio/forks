@@ -79,3 +79,30 @@ class Module extends HTMLElement {
 
 // Define the new element
 customElements.define('mit-module', Module);
+
+
+// Create a class for the divider
+class Divider extends HTMLElement {
+    constructor() {
+      // Always call super first in constructor
+      super();
+  
+      // attribute content 
+      const title = this.getAttribute('title');
+  
+      // card header color - bootstrap colors
+      let color = this.getAttribute('color');
+      if (color) {
+        color = `style="background-color: var(--${color})`;
+      }
+  
+      this.innerHTML = `
+          <div class="card" id="accordion">
+            <h5 class="card-header" ${color}">${title}</h5>
+          </div>
+      `;    
+    }
+}
+
+// Define the new element
+customElements.define('mit-divider', Divider);
