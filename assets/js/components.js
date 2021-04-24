@@ -14,6 +14,7 @@ class Submodule extends HTMLElement {
     const exerciseUrl = this.getAttribute('exerciseUrl');
     const test        = this.getAttribute('test');
     const testUrl     = this.getAttribute('testUrl');
+    const optional    = this.getAttribute('optional');
 
     let videoStr = '';
     if(video){
@@ -31,9 +32,13 @@ class Submodule extends HTMLElement {
     if(test){
       testStr = `<a href="${testUrl}"> <i class="fas fa-vial"></i> ${test}</a><br/>`;
     }
+    let optionalStr = '';
+    if(optional){
+      optionalStr = '<span style="color:red;">[OPTIONAL]</span>';
+    }
 
     this.innerHTML = `
-        <h5>${title}</h5>
+        <h5>${title} ${optionalStr}</h5>
         <p>
           ${videoStr}
           ${camtasiaStr}
