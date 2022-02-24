@@ -6,8 +6,12 @@ class Submodule extends HTMLElement {
 
     // attribute content 
     const title       = this.getAttribute('title');
+    const lecture     = this.getAttribute('lecture');
+    const lectureUrl  = this.getAttribute('lectureUrl');    
     const video       = this.getAttribute('video');
     const videoUrl    = this.getAttribute('videoUrl');
+    const link        = this.getAttribute('link');    
+    const linkUrl     = this.getAttribute('linkUrl');      
     const camtasia    = this.getAttribute('camtasia');    
     const camtasiaUrl = this.getAttribute('camtasiaUrl');
     const exercise    = this.getAttribute('exercise');
@@ -16,10 +20,18 @@ class Submodule extends HTMLElement {
     const testUrl     = this.getAttribute('testUrl');
     const optional    = this.getAttribute('optional');
 
+    let lectureStr = '';
+    if(lecture){
+      lectureStr = `<a href="${lectureUrl}"> <i class="fa fa-slideshare"></i> ${lecture}</a><br />`;
+    }
     let videoStr = '';
     if(video){
       videoStr = `<a href="${videoUrl}"><i class="fas fa-video"></i> ${video}</a><br />`;
     }
+    let linkStr = '';
+    if(link){
+      linkStr = `<a href="${linkUrl}"> <i class="fa fa-link"></i> ${link}</a><br />`;
+    }    
     let camtasiaStr = '';
     if(camtasia){
       camtasiaStr = `<a href="${camtasiaUrl}"><i class="fab fa-cuttlefish"></i> ${camtasia}</a><br />`;
@@ -31,7 +43,7 @@ class Submodule extends HTMLElement {
     let testStr = '';
     if(test){
       testStr = `<a href="${testUrl}"> <i class="fas fa-vial"></i> ${test}</a><br/>`;
-    }
+    }    
     let optionalStr = '';
     if(optional){
       optionalStr = '<span style="color:red;">[OPTIONAL]</span>';
@@ -40,9 +52,11 @@ class Submodule extends HTMLElement {
     this.innerHTML = `
         <h5>${title} ${optionalStr}</h5>
         <p>
+          ${lectureStr}
           ${videoStr}
           ${camtasiaStr}
           ${exerciseStr}
+          ${linkStr}
           ${testStr}          
         </p>
     `;    
