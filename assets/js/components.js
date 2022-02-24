@@ -22,27 +22,27 @@ class Submodule extends HTMLElement {
 
     let lectureStr = '';
     if(lecture){
-      lectureStr = `<a href="${lectureUrl}"> <i class="fa fa-slideshare"></i> ${lecture}</a><br />`;
+      lectureStr = `<a href="${lectureUrl}" class="text-decoration-none"> <i class="fab fa-slideshare"></i> ${lecture}</a><br />`;
     }
     let videoStr = '';
     if(video){
-      videoStr = `<a href="${videoUrl}"><i class="fas fa-video"></i> ${video}</a><br />`;
+      videoStr = `<a href="${videoUrl}" class="text-decoration-none"><i class="fas fa-video"></i> ${video}</a><br />`;
     }
     let linkStr = '';
     if(link){
-      linkStr = `<a href="${linkUrl}"> <i class="fa fa-link"></i> ${link}</a><br />`;
+      linkStr = `<a href="${linkUrl}" class="text-decoration-none"> <i class="fas fa-link"></i> ${link}</a><br />`;
     }    
     let camtasiaStr = '';
     if(camtasia){
-      camtasiaStr = `<a href="${camtasiaUrl}"><i class="fab fa-cuttlefish"></i> ${camtasia}</a><br />`;
+      camtasiaStr = `<a href="${camtasiaUrl}" class="text-decoration-none"><i class="fab fa-cuttlefish"></i> ${camtasia}</a><br />`;
     }
     let exerciseStr = '';
     if(exercise){
-      exerciseStr = `<a href="${exerciseUrl}"> <i class="fas fa-tools"></i> ${exercise}</a><br />`;
+      exerciseStr = `<a href="${exerciseUrl}" class="text-decoration-none"> <i class="fas fa-tools"></i> ${exercise}</a><br />`;
     }
     let testStr = '';
     if(test){
-      testStr = `<a href="${testUrl}"> <i class="fas fa-vial"></i> ${test}</a><br/>`;
+      testStr = `<a href="${testUrl}" class="text-decoration-none"> <i class="fas fa-vial"></i> ${test}</a><br/>`;
     }    
     let optionalStr = '';
     if(optional){
@@ -83,10 +83,12 @@ class Module extends HTMLElement {
       color = `style="background-color: var(--${color})`;
     }
 
+    // <div class="card-header">Featured</div>
+    //           <div  id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">          
     this.innerHTML = `
-        <div class="card" id="accordion">
+        <div class="card">
           <h5 class="card-header" ${color}">${title}</h5>
-          <div  id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">          
+          <div class="collapse show" id="collapseExample">
             <div class="card-body">
               ${this.innerHTML}
             </div>
