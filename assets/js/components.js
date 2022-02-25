@@ -1,3 +1,7 @@
+// ----------------------------------------------------
+//                COMPONENTS START
+// ----------------------------------------------------
+
 // Create a class for the element
 class Submodule extends HTMLElement {
   constructor() {
@@ -102,6 +106,31 @@ class Module extends HTMLElement {
 customElements.define('mit-module', Module);
 
 
+// Create a class for the element
+class Certification extends HTMLElement {
+  constructor() {
+    // Always call super first in constructor
+    super();
+
+    // get attributes
+    let title = this.getAttribute('title');
+    let url   = this.getAttribute('url');
+    let color = this.getAttribute('color');
+    if (color) {
+      color = `style="color:${color}"`;
+    }
+
+    this.innerHTML = `
+      <a ${color} href="${url}">
+        <h1 class="display-6">${title}</h1>
+      </a>
+    `;    
+  }
+}
+// Define the new element
+customElements.define('mit-cert', Certification);
+
+
 // Create a class for the divider
 class Divider extends HTMLElement {
     constructor() {
@@ -127,3 +156,8 @@ class Divider extends HTMLElement {
 
 // Define the new element
 customElements.define('mit-divider', Divider);
+
+
+// ----------------------------------------------------
+//                COMPONENTS START
+// ----------------------------------------------------
