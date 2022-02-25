@@ -1,26 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<!-- hide document until css/js loaded -->
+<html style="display: none;">
   <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
     <title>EdTech</title>
-
-    <!-- Bootstrap CSS -->
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
-      crossorigin="anonymous"
-    />
-    <!-- Forks CSS -->
-    <link rel="stylesheet" href="assets/css/styles.css" />
-
-    <!-- Fontawesome -->
-    <link href="assets/css/all.css" rel="stylesheet" />
   </head>
 
   <body>
@@ -32,38 +15,83 @@
       <!-- ------------------------------------------------------ -->
 
       Coding Bootcamp
-      <a class="text-success" href="code/cert01.html"><h1 class="display-6">Coding 01: Web Dev</h1></a>      
-      <a class="text-success" href="code/cert02.html"><h1 class="display-6">Coding 02: Frontend</h1></a>
-      <a class="text-success" href="code/cert03.html"><h1 class="display-6">Coding 03: Backend</h1></a>
-      Data Engineer Bootcamp
-      <a class="text-warning" href="data/cert01.html"><h1 class="display-6">Data 01: Data Analyst</h1></a>
-      <a class="text-warning" href="data/cert02.html"><h1 class="display-6">Data 02: Data Engineer I</h1></a>
-      <a class="text-warning" href="data/cert03.html"><h1 class="display-6">Data 03: Data Engineer II</h1></a>
-      Video Pills
-      <a class="text-info" href="pills/2021_12.html"><h1 class="display-6">Video Pills - Dec 2021</h1></a>
+      <mit-cert 
+        title="Coding 01: Web Dev" 
+        url="code/cert01.html" 
+        color="#20c997">        
+      </mit-cert>
+      <mit-cert 
+        title="Coding 02: Frontend" 
+        url="code/cert02.html"
+        color="#20c997">
+      </mit-cert>
+      <mit-cert 
+        title="Coding 03: Backend" 
+        url="code/cert03.html"
+        color="#20c997">
+      </mit-cert>
 
-      <!-- ------------------------------------------------------ -->
-      <!-- add color, once section completed                      -->
-      <!-- https://getbootstrap.com/docs/5.0/utilities/colors/    -->
-      <!-- ------------------------------------------------------ -->
+      Data Engineer Bootcamp
+      <mit-cert 
+        title="Data 01: Data Analyst" 
+        url="data/cert01.html"
+        color="#ffc107">
+      </mit-cert>
+      <mit-cert 
+        title="Data 02: Data Engineer I" 
+        url="data/cert02.html"
+        color="#ffc107">
+      </mit-cert>
+      <mit-cert 
+        title="Data 03: Data Engineer II" 
+        url="data/cert03.html"
+        color="#ffc107">
+      </mit-cert>
+
+      Video Pills
+      <mit-cert 
+        title="Video Pills: Dec 2021" 
+        url="pills/2021_12.html"
+        color="#EC87C0">
+      </mit-cert>
+
+      <!-- --------------------------------------------------------- -->
+      <!-- Bootrap colors here                                       -->
+      <!--    https://getbootstrap.com/docs/5.0/utilities/colors/    -->
+      <!-- Another pastel palette:                                   -->
+      <!--    https://codepen.io/chorijan/full/azVzPO                -->
+      <!-- --------------------------------------------------------- -->
 
       Digital Transformation Updates
-      <a style="color:#ced4da" href="digitaltransformation/blockchain_update.html"><h1 class="display-6">TBD: Blockchain - Abel</h1></a>
-      <a style="color:#ced4da" href="digitaltransformation/cloud_update.html"><h1 class="display-6">TBD: Cloud - John</h1></a>
+      <mit-cert 
+        title="Digital Trans: Blockchain - Abel" 
+        url="digitaltransformation/blockchain_update.html"
+        color="#0dcaf0">
+      </mit-cert>
+      <mit-cert 
+        title="Digital Trans: Cloud - John" 
+        url="digitaltransformation/cloud_update.html"
+        color="#0dcaf0">
+      </mit-cert>
+
       Data Leadership
-      <a style="color:#ced4da" href="dataleadership/abel.html"><h1 class="display-6">Data Part I</h1></a>
-      <a style="color:#ced4da" href="dataleadership/john.html"><h1 class="display-6">Data Part II</h1></a>
-    </div>
+      <mit-cert 
+        title="Leadership: Part 1 - Abel" 
+        url="dataleadership/abel.html"
+        color="#ced4da">
+      </mit-cert>
+      <mit-cert 
+        title="Leadership: Part 2 - John" 
+        url="dataleadership/john.html"
+        color="#ced4da">
+      </mit-cert>
 
-
+      <div style="margin-bottom: 100px;"></div>
       <!-- ------------------------------------------------------ -->
       <!-- --------------- END CONTENT HERE  -------------------- -->
       <!-- ------------------------------------------------------ -->
 
-
-    <!-- Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-
-
+    </div>
+    <script src="assets/js/init.js"></script>
   </body>
 </html>
