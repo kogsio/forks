@@ -3,9 +3,15 @@
 //                LOAD LIBRARIES START
 // ----------------------------------------------------
 
-var path = '';
-if (document.currentScript.getAttribute('level') == '2'){
-  path = '../';
+// resolve path for local and server development
+var path = document.currentScript.getAttribute('src');
+if (path.includes('../assets/js')){
+  var index = path.indexOf('assets/js');
+  path = path.substring(0,index);
+  console.log('path:',path);
+}
+else{
+  path = '';
 }
 
 var styles = [  
