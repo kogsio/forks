@@ -131,6 +131,47 @@ class Certification extends HTMLElement {
 customElements.define('mit-cert', Certification);
 
 
+// Create a class for the element
+class Link extends HTMLElement {
+  constructor() {
+    // Always call super first in constructor
+    super();
+
+    // get attributes
+    let title = this.getAttribute('title');
+    let url   = this.getAttribute('url');
+
+    this.innerHTML = `
+      <a href="${url}" target="_blank"><i class="fas fa-external-link-alt"></i> ${title}</a><br>
+    `;    
+  }
+}
+// Define the new element
+customElements.define('mit-link', Link);
+
+
+// Create a class for the element
+class Block extends HTMLElement {
+  constructor() {
+    // Always call super first in constructor
+    super();
+
+    // attribute content 
+    const title = this.getAttribute('title');
+
+    this.innerHTML = `      
+      <h5>${title}</h5>
+      <div>
+        ${this.innerHTML}
+      </div>
+      <br>
+    `;    
+  }
+}
+// Define the new element
+customElements.define('mit-block', Block);
+
+
 // Create a class for the divider
 class Divider extends HTMLElement {
     constructor() {
