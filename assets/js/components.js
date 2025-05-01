@@ -23,6 +23,7 @@ class Submodule extends HTMLElement {
     const test        = this.getAttribute('test');
     const testUrl     = this.getAttribute('testUrl');
     const optional    = this.getAttribute('optional');
+    const postdate        = this.getAttribute('data-date');
 
     let lectureStr = '';
     if(lecture){
@@ -52,6 +53,15 @@ class Submodule extends HTMLElement {
     if(optional){
       optionalStr = '<span style="color:red;">[OPTIONAL]</span>';
     }
+    let postdateStr = '';
+    if(postdate){
+      const TWO_WEEKS_MS = 14 * 24 * 60 * 60 * 1000;
+      const now = new Date();      
+      const date = new Date(postdate);
+      if (now - date < TWO_WEEKS_MS) {
+        postdateStr += ' <span class="badge bg-danger ms-2">NEW</span>';
+      }
+    }
 
     this.innerHTML = `
         <h5>${title} ${optionalStr}</h5>
@@ -61,7 +71,8 @@ class Submodule extends HTMLElement {
           ${camtasiaStr}
           ${exerciseStr}
           ${linkStr}
-          ${testStr}          
+          ${testStr}
+          ${postdateStr}
         </p>
     `;    
 
