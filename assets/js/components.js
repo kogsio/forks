@@ -24,6 +24,7 @@ class Submodule extends HTMLElement {
     const testUrl     = this.getAttribute('testUrl');
     const optional    = this.getAttribute('optional');
     const postdate    = this.getAttribute('data-date');
+    console.log("postdate: ", postdate)
 
     let lectureStr = '';
     if(lecture){
