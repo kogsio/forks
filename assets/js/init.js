@@ -112,8 +112,7 @@ function countVideos(){
 //                NEW BADGE START
 // ----------------------------------------------------
 
-function newBadge(){
-
+document.addEventListener("DOMContentLoaded", function () {
   const TWO_WEEKS_MS = 14 * 24 * 60 * 60 * 1000;
   const now = new Date();
 
@@ -129,8 +128,9 @@ function newBadge(){
     }
   });
 
-}
+  
+}); 
 
 // ----------------------------------------------------
-//                COUNT VIDEOS END
+//                NEW BADGE END
 // ----------------------------------------------------
