@@ -23,7 +23,7 @@ class Submodule extends HTMLElement {
     const test        = this.getAttribute('test');
     const testUrl     = this.getAttribute('testUrl');
     const optional    = this.getAttribute('optional');
-    const postdate        = this.getAttribute('data-date');
+    const postdate    = this.getAttribute('data-date');
 
     let lectureStr = '';
     if(lecture){
