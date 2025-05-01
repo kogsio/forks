@@ -118,6 +118,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   document.querySelectorAll('[postdate]').forEach(el => {
     const dateStr = el.getAttribute('postdate');
+    console.log(dateStr);
 
     const date = new Date(dateStr);
     if (now - date < TWO_WEEKS_MS) {
