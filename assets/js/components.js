@@ -89,19 +89,30 @@ class Module extends HTMLElement {
     super();
 
     // attribute content 
-    const title = this.getAttribute('title');
+    const title    = this.getAttribute('title');
+    const postdate = this.getAttribute('postdate');    
 
     // card header color - bootstrap colors
     let color = this.getAttribute('color');
     if (color) {
       color = `style="background-color: ${color}"`;
     }
+    let postdateStr = '';
+    if(postdate){
+      const TWO_WEEKS_MS = 14 * 24 * 60 * 60 * 1000;
+      const now = new Date();
+      const date = new Date(postdate);
+      if (now - date < TWO_WEEKS_MS) {
+        postdateStr = ' <span class="badge bg-danger ms-2">NEW</span>';
+      }  
+    }
+
 
     // <div class="card-header">Featured</div>
     //           <div  id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">          
     this.innerHTML = `
         <div class="card">
-          <h5 class="card-header" ${color}>${title}</h5>
+          <h5 class="card-header" ${color}>${title} ${postdateStr}</h5>
           <div class="collapse show" id="collapseExample">
             <div class="card-body">
               ${this.innerHTML}
