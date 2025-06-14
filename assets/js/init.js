@@ -108,30 +108,3 @@ function countVideos(){
 //                COUNT VIDEOS END
 // ----------------------------------------------------
 
-// ----------------------------------------------------
-//                NEW BADGE START
-// ----------------------------------------------------
-
-document.addEventListener("DOMContentLoaded", function () {
-  const TWO_WEEKS_MS = 14 * 24 * 60 * 60 * 1000;
-  const now = new Date();
-
-  document.querySelectorAll('[postdate]').forEach(el => {
-    const dateStr = el.getAttribute('postdate');
-    console.log(dateStr);
-
-    const date = new Date(dateStr);
-    if (now - date < TWO_WEEKS_MS) {
-      const badge = document.createElement('span');
-      badge.className = 'badge bg-danger ms-2';
-      badge.textContent = 'NEW';
-      el.appendChild(badge);
-    }
-  });
-
-  
-}); 
-
-// ----------------------------------------------------
-//                NEW BADGE END
-// ----------------------------------------------------

@@ -25,6 +25,15 @@ class Submodule extends HTMLElement {
     const optional    = this.getAttribute('optional');
     const postdate    = this.getAttribute('postdate');
 
+    // create pretty date string
+    let prettydate = postdate ? new Date(postdate).toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit'
+    }).replace(/\//g, '-') : '';
+    prettydate = prettydate ? `(${prettydate})` : '';
+    prettydate = prettydate ? `<span class="text-black-50" style="font-size: 45%;">${prettydate}</span>` : '';
+
     let lectureStr = '';
     if(lecture){
       lectureStr = `<a href="${lectureUrl}" class="text-decoration-none"> <i class="fab fa-slideshare"></i> ${lecture}</a><br />`;
@@ -53,18 +62,18 @@ class Submodule extends HTMLElement {
     if(optional){
       optionalStr = '<span style="color:red;">[OPTIONAL]</span>';
     }
-    let postdateStr = '';
+    let newitem = '';
     if(postdate){
       const TWO_WEEKS_MS = 14 * 24 * 60 * 60 * 1000;
       const now = new Date();
       const date = new Date(postdate);
       if (now - date < TWO_WEEKS_MS) {
-        postdateStr = ' <span class="badge bg-danger ms-2">NEW</span>';
+        newitem = ' <span class="badge bg-danger ms-2 small" style="font-size: 35%;">NEW</span>';
       }  
     }
 
     this.innerHTML = `
-        <h5>${title} ${optionalStr} ${postdateStr}</h5>
+        <h5>${title} ${optionalStr} ${newitem} ${prettydate}</h5>
         <p>
           ${lectureStr}
           ${videoStr}
@@ -90,29 +99,18 @@ class Module extends HTMLElement {
 
     // attribute content 
     const title    = this.getAttribute('title');
-    const postdate = this.getAttribute('postdate');    
 
     // card header color - bootstrap colors
     let color = this.getAttribute('color');
     if (color) {
       color = `style="background-color: ${color}"`;
     }
-    let postdateStr = '';
-    if(postdate){
-      const TWO_WEEKS_MS = 14 * 24 * 60 * 60 * 1000;
-      const now = new Date();
-      const date = new Date(postdate);
-      if (now - date < TWO_WEEKS_MS) {
-        postdateStr = ' <span class="badge bg-danger ms-2">NEW</span>';
-      }  
-    }
-
 
     // <div class="card-header">Featured</div>
     //           <div  id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">          
     this.innerHTML = `
         <div class="card">
-          <h5 class="card-header" ${color}>${title} ${postdateStr}</h5>
+          <h5 class="card-header" ${color}>${title}</h5>
           <div class="collapse show" id="collapseExample">
             <div class="card-body">
               ${this.innerHTML}
