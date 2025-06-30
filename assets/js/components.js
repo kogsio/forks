@@ -23,6 +23,8 @@ class Submodule extends HTMLElement {
     const test        = this.getAttribute('test');
     const testUrl     = this.getAttribute('testUrl');
     const optional    = this.getAttribute('optional');
+    const document    = this.getAttribute('document');    
+    const documentUrl = this.getAttribute('documentUrl');
     const postdate    = this.getAttribute('postdate');
 
     let prettydate = '';
@@ -72,6 +74,10 @@ class Submodule extends HTMLElement {
     if(optional){
       optionalStr = '<span style="color:red;">[OPTIONAL]</span>';
     }
+    let documentStr = '';
+    if(document){
+      documentStr = `<a href="${documentUrl}" class="text-decoration-none"><i class="fas fa-file-alt"></i> ${document}</a><br />`;
+    }
     let newitem = '';
     if(postdate){
       const TWO_WEEKS_MS = 14 * 24 * 60 * 60 * 1000;
@@ -90,7 +96,8 @@ class Submodule extends HTMLElement {
           ${camtasiaStr}
           ${exerciseStr}
           ${linkStr}
-          ${testStr}          
+          ${testStr}
+          ${documentStr}          
         </p>
     `;    
 
