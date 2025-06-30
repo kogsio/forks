@@ -25,14 +25,33 @@ class Submodule extends HTMLElement {
     const optional    = this.getAttribute('optional');
     const postdate    = this.getAttribute('postdate');
 
-    // create pretty date string
-    let prettydate = postdate ? new Date(postdate).toLocaleDateString('en-US', {
-      year: 'numeric',
-      month: '2-digit',
-      day: '2-digit'
-    }).replace(/\//g, '-') : '';
-    prettydate = prettydate ? `(${prettydate})` : '';
-    prettydate = prettydate ? `<span class="text-black-50" style="font-size: 45%;">${prettydate}</span>` : '';
+    let prettydate = '';
+    if (postdate) {
+      // split into numbers and build a local‐time Date
+      const [year, month, day] = postdate.split('-').map(Number);
+      const dateObj = new Date(year, month - 1, day);
+
+      // format as MM-DD-YYYY
+      const formatted = dateObj
+        .toLocaleDateString('en-US', {
+          year: 'numeric',
+          month: '2-digit',
+          day: '2-digit'
+        })
+        .replace(/\//g, '-');
+
+      // wrap in your span
+      prettydate = `<span class="text-black-50" style="font-size: 45%;">(${formatted})</span>`;
+    }
+
+    // // create pretty date string
+    // let prettydate = postdate ? new Date(postdate).toLocaleDateString('en-US', {
+    //   year: 'numeric',
+    //   month: '2-digit',
+    //   day: '2-digit'
+    // }).replace(/\//g, '-') : '';
+    // prettydate = prettydate ? `(${prettydate})` : '';
+    // prettydate = prettydate ? `<span class="text-black-50" style="font-size: 45%;">${prettydate}</span>` : '';
 
     let lectureStr = '';
     if(lecture){
