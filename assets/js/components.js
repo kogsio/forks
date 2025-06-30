@@ -44,15 +44,6 @@ class Submodule extends HTMLElement {
       prettydate = `<span class="text-black-50" style="font-size: 45%;">(${formatted})</span>`;
     }
 
-    // // create pretty date string
-    // let prettydate = postdate ? new Date(postdate).toLocaleDateString('en-US', {
-    //   year: 'numeric',
-    //   month: '2-digit',
-    //   day: '2-digit'
-    // }).replace(/\//g, '-') : '';
-    // prettydate = prettydate ? `(${prettydate})` : '';
-    // prettydate = prettydate ? `<span class="text-black-50" style="font-size: 45%;">${prettydate}</span>` : '';
-
     let lectureStr = '';
     if(lecture){
       lectureStr = `<a href="${lectureUrl}" class="text-decoration-none"> <i class="fab fa-slideshare"></i> ${lecture}</a><br />`;
