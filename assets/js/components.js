@@ -10,6 +10,7 @@ class Submodule extends HTMLElement {
 
     // attribute content 
     const title       = this.getAttribute('title');
+    const text        = this.getAttribute('text');        // NEW: plain text content - request from jrw
     const lecture     = this.getAttribute('lecture');
     const lectureUrl  = this.getAttribute('lectureUrl');    
     const video       = this.getAttribute('video');
@@ -88,6 +89,16 @@ class Submodule extends HTMLElement {
       }  
     }
 
+    // NEW: plain text block rendered in 11 point font - request from jrw
+    let textStr = '';
+    if (text) {
+      textStr = `
+        <div style="font-size: 11pt; line-height: 1.4; margin-bottom: 0.75rem;">
+          ${text}
+        </div>
+      `;
+    }    
+
     this.innerHTML = `
         <h5>${title} ${optionalStr} ${newitem} ${prettydate}</h5>
         <p>
@@ -99,6 +110,7 @@ class Submodule extends HTMLElement {
           ${testStr}
           ${documentStr}          
         </p>
+        ${textStr}
     `;    
 
   }
