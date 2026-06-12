@@ -114,7 +114,7 @@ if (imageUrls) {
           <img
             src="${url}"
             alt="Slide ${index + 1}"
-            style="max-width: 100%; margin: 1rem 0; display: block;"
+            style="max-width: 25%; margin: 1rem 0; display: block;"
           />
         </a>
       `).join('')}
