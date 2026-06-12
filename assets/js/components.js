@@ -16,7 +16,8 @@ class Submodule extends HTMLElement {
     const video       = this.getAttribute('video');
     const videoUrl    = this.getAttribute('videoUrl');
     const link        = this.getAttribute('link');    
-    const linkUrl     = this.getAttribute('linkUrl');      
+    const linkUrl     = this.getAttribute('linkUrl'); 
+    const imageUrls   = this.getAttribute('imageUrls');    // NEW link in list of images
     const camtasia    = this.getAttribute('camtasia');    
     const camtasiaUrl = this.getAttribute('camtasiaUrl');
     const exercise    = this.getAttribute('exercise');
@@ -98,6 +99,29 @@ class Submodule extends HTMLElement {
         </div>
       `;
     }    
+  let imageStr = '';
+
+if (imageUrls) {
+  const urls = imageUrls
+    .split('|')
+    .map(url => url.trim())
+    .filter(url => url.length > 0);
+
+  imageStr = `
+    <div class="submodule-images" style="margin-top: 1rem;">
+      ${urls.map((url, index) => `
+        <a href="${url}" target="_blank" rel="noopener noreferrer">
+          <img
+            src="${url}"
+            alt="Slide ${index + 1}"
+            style="max-width: 100%; margin: 1rem 0; display: block;"
+          />
+        </a>
+      `).join('')}
+    </div>
+  `;
+}
+
 
     this.innerHTML = `
         <h5>${title} ${optionalStr} ${newitem} ${prettydate}</h5>
@@ -111,6 +135,7 @@ class Submodule extends HTMLElement {
           ${documentStr}          
         </p>
         ${textStr}
+        ${imageStr}
     `;    
 
   }
