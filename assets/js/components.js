@@ -108,13 +108,38 @@ if (imageUrls) {
     .filter(url => url.length > 0);
 
   imageStr = `
-    <div class="submodule-images" style="margin-top: 1rem;">
+    <div 
+      class="submodule-images" 
+      style="
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+        align-items: flex-start;
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+        margin-top: 1rem;
+        width: 100%;
+      "
+    >
       ${urls.map((url, index) => `
-        <a href="${url}" target="_blank" rel="noopener noreferrer">
+        <a 
+          href="${url}" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          style="
+            flex: 1 1 calc(25% - 1rem);
+            max-width: calc(25% - 1rem);
+            display: block;
+          "
+        >
           <img
             src="${url}"
             alt="Slide ${index + 1}"
-            style="max-width: 25%; margin: 1rem 0; display: block;"
+            style="
+              width: 100%;
+              height: auto;
+              display: block;
+            "
           />
         </a>
       `).join('')}
